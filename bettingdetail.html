@@ -1,0 +1,48 @@
+<!DOCTYPE html>  
+<html lang="en"> 
+<head>  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>投注内容详情</title>  
+    <link rel="shortcut icon" type="image/x-icon" href="img/biticon.ico" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/betting.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>  
+<body ng-app="betting">
+    <header id="top">
+		<a class="point" href="index.html">
+			<img src="img/left.png"/>
+		</a>
+		<h4 class="tatle">投注详情</h4>
+		<!--<a id="pointer" class="pointer">
+			<img ng-src="{{::tabqie.src1}}" alt="icon的seo">
+		</a>-->
+	</header> 
+	<article ng-controller="bettingctrl as betting">
+		<div>
+			<div class="ticket">
+				<h5 class="left">过关方式：<span>{{betting.way}}</span></h5>
+				<table>
+					<tr>
+						<th>比赛编号</th>
+						<th>投注内容</th>
+						<th>倍数</th>
+					</tr>
+					<tr ng-repeat="bet in betting.betbox">
+						<td><span>{{bet.num}}</span></td>
+						<td><span>{{bet.win}}</span><i>{{bet.odds}}</i></td>
+						<td rowspan="2"><span>{{bet.times}}</span></td>
+					</tr>
+				</table>
+			</div>
+			<div class="bottom">
+				<p>以上是平台提供的参考拆票明细，*****************奖金赔率以实体票为准</p>
+			</div>
+		</div>
+	</article>
+</body> 
+</html>  
+

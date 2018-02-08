@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>实时询价</title>  
+    <link rel="shortcut icon" type="image/x-icon" href="img/biticon.ico" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/ticket.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>-->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+    <script src="js/ticket.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone-with-data-2012-2022.min.js"></script>-->
+</head>
+<body ng-app="ticket">
+	<header id="top">
+		<a class="point" href="index.html">
+			<img src="img/left.png"/>
+		</a>
+		<h4 class="tatle">实时询价</h4>
+	</header> 
+    <article ng-controller="ticketctrl as tick">
+        <div>
+        	<div class="sigerd">
+				<ul class="clearfix">
+					<li class="left"><span>当前价格</span><br /><em class="gray">{{tick.time}}</em></li>
+					<li class="left"><span class="prices">￥{{tick.money}}</span><br /><em></em></li>
+					<li class="left"><button class="butt">更新价格(30s)</button><br /><em></em></li>
+				</ul>
+				<ul class="clearfix">
+					<li class="left"><span>历史最低</span><br /><em class="green">￥{{tick.low}}</em></li>
+					<li class="left"><span>成本价格</span><br /><em class="gray">￥{{tick.cost}}</em></li>
+					<li class="left"><span>历史最高</span><br /><em class="red">￥{{tick.high}}</em></li>
+				</ul>
+        	</div>
+			<div class="echarts">
+				<div class="clearfix">
+					<h5 class="left">价格走势：</h5>
+					<a class="right" href="valuedetail.html">查看价值明细</a>
+				</div>
+				<div class="echartsdiv" style="width: 100%;border: 1px solid #ddd;">
+					<div id="main" style="width: 100%; height:150px;"></div>
+					<script type="text/javascript">
+						// 基于准备好的dom，初始化echarts实例
+						var xrays = new Array();
+						for(var int = 0; int < 2; int++) {
+							xrays[int] = int + "'";
+						}　　
+						var myChart = echarts.init(document.getElementById('main'));
+					    console.log(123)
+						var option = {　　　　
+							tooltip: {
+								show:true,
+					        },
+							title: {
+//								text: '平',
+								textStyle: {
+						            fontSize: 14,
+						            fontWeight: 'bolder',
+						        },
+							}, 
+							grid:{
+								borderWidth:0,  //去掉外围线
+								x:20,
+								y:20,
+								x2:20,
+								y2:20,
+							},
+							xAxis: [{
+								splitLine: {show: false}, //去除网格线
+								axisTick: {show: false}, //去掉刻度
+								type: 'category',
+								boundaryGap: false,
+								data: xrays,
+								axisLine:{
+				                    lineStyle:{
+				                        color:'#959595',
+				                        width:1,
+				                    }
+				                },
+				                axisLabel: {
+									interval:0,
+								},
+							}],
+							yAxis: [{
+								splitLine: {
+									show: true,
+//									color:"#f3f3f3",
+								},
+								axisTick: {show: false},
+								type: 'value',
+								axisLabel: {
+									show: true,  //刻度值
+								},
+								axisLine:{
+				                    lineStyle:{
+				                        color:'#959595',
+				                        width:1,
+				                    }
+				                },
+							}],
+							series: [{
+								smooth:true,
+								type: 'line',
+								data: (function (){
+						            var res = [];
+						            var len = 0;
+						            while (len < 91) {
+						                res.push((Math.random()*10 + 2).toFixed(1) - 0);
+						                len++;
+						            }
+						            return res;
+						        })(),
+						        symbol:'none',  //去掉圆点
+								itemStyle: {
+						            normal: {
+						            	color:'#87cefa',
+						              	lineStyle:{  
+					                      	color:'#87cefa',
+											width:1.5
+					                    },
+					                }
+					            },
+							}]
+						};
+						myChart.setOption(option, true);
+					</script>
+				</div>
+			</div>
+			<div class="tbottom">
+				<h5>交易须知：</h5>
+				<p>1.由彩易科思网络技术有限公司（以下简称彩易科思）为您提供彩票方案价值评估与交易服务。您可以将出票成功的方案转让给彩易科思。</p>
+				<p>2.您主动申请交易后，有彩易科思系统确认是否交易成功，您可以刷新当前页面查询最新交易情况。</p>
+				<p>3.交易成功后，彩易科思将向您支付该方案的当前评估金额，且该方案的全部收益将归属彩易科思。</p>
+				<p>4.在比赛进行中发起交易，有60秒交易确认时间。在此期间，如遇到并不限于进球，点球，红牌，危险进攻等事件，彩易科思会拒绝交易。</p>
+				<p><input type="checkbox" checked="checked" /><span>我已阅读并同意《彩票评估与交易协议》</span></p>
+			</div>
+			<button class="ok">发起交易</button>
+		</div>
+    </article>
+</body>
+</html>

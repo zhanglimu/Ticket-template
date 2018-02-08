@@ -1,0 +1,228 @@
+@charset "utf-8";
+#top{height: 48px;width: 100%;background: #E32030;}
+.point img {
+float:left;
+width:20px;
+height:20px;
+margin:15px 0 0 20px;
+}
+.point,.tatle{display: inline-block; width: 33.3%;}
+.tatle{color: #fff;text-align: center;}
+.foot img{width: 18%;}
+/*index.html*/
+.sige{width: 100%;background: #fff; display: inline-block; border: 1px solid #ddd;}
+.sige li{width: 25%;text-align: center;}
+.sige span,.sige em{display: inline-block; padding: 5px 0;}
+.sige em{color: #E32030;font-weight: none;}
+
+#progressBar{
+	width: 90%;
+	height: 50px;
+	position: relative;
+	margin: 0 5%;
+}
+#progressBar div{
+	width: 100%;
+	height: 1px;
+	position: absolute;
+	top:48%;
+	left: 0;
+	margin-top:0;
+	border:1px solid #ddd;
+	background: #ddd;
+}
+#progressBar div span{
+	position: absolute;
+	display: inline-block;
+	background: #E32030;
+	height: 1px;
+	width: 25%;
+}
+#progressBar>span{
+	position: absolute;
+	top:0;
+	margin-top: 20px;
+	width: 10px;
+	height: 10px;
+	border:2px solid #ddd;
+	border-radius: 50%;
+	background: #E32030;
+	margin-left: 0;
+}
+#progressBar>span:nth-child(1){
+	left: 0%;
+}
+#progressBar>span:nth-child(2){
+	left: 25%;
+	background:#E32030;
+}
+#progressBar>span:nth-child(3){
+	left: 50%;
+	background:#ddd;
+}
+#progressBar>span:nth-child(4){
+	left: 74%;
+	background:#ddd;
+}
+#progressBar>span:nth-child(5){
+	left: 97%;
+	background:#ddd;
+}
+#progressBari{
+	width: 100%;
+	height: 30px;
+	position: relative;
+	/*margin: 0px 0 0 25px;*/
+}
+#progressBari>i{
+	position: absolute;
+	top:0;
+}
+#progressBari>i:nth-child(1){
+	left: 0%;
+}
+#progressBari>i:nth-child(2){
+	left: 22%;
+}
+#progressBari>i:nth-child(3){
+	left: 44%;
+}
+#progressBari>i:nth-child(4){
+	left: 68%;
+}
+#progressBari>i:nth-child(5){
+	left: 87%;
+}
+
+.order table{width: 100%;margin: 10px 0; background:#fff;}
+.order th{padding: 5px 0;}
+.order td,.order th{border: 1px solid #ddd;text-align: center;}
+.order td i{color: #959595;}
+.order a{color: #E32030;}
+
+.price table{width: 100%;margin: 10px 0; background:#fff;}
+.price td{border: 1px solid #ddd;padding: 5px;color: #959595;}
+.price i{color: #E32030;padding-left:30px;}
+.price button{border: 1px solid #E32030; padding:0 2px;background: #E32030;color: #fff;border-radius: 2px;}
+
+.bottom p{color: #959595;padding: 5px 0;}
+/*bettingdetail.html*/
+.ticket h5{margin: 10px 0;}
+.ticket table{width: 100%;margin: 10px 0; background:#fff;}
+.ticket td,.ticket th{border: 1px solid #ddd;padding: 5px 0;text-align: center;}
+.ticket td i{padding-left: 10px;}
+/*allorder.html*/
+.allorder_tabli {
+  height: 43px;
+}
+.allorder_tabli li {
+  width: 20%;
+  float: left;
+  text-align: center;
+}
+.allorder_tabli li a {
+  display: block;
+  height: 42px;
+  border-bottom: 1px solid #d2d2d2;
+  line-height: 42px;
+  color: #333333;
+}
+.allorder_tabli li a.curr {
+  border-bottom: 1px solid #e4393c;
+  color: #e4393c;
+}
+.sect{border-bottom: 1px solid #E32030;}
+.orderlist {
+  padding: 15px 0 1px 0;
+  /*background: #faf2cd;*/
+}
+.orderlist dl {
+  border: 1px solid #d2d2d2;
+  overflow: hidden;
+  margin: 0 0 15px 0;
+}
+.orderlist dt {
+  width: 16%;
+  float: left;
+  text-align: center;
+  font-size: 22px;
+}
+.orderlist dt span {
+  display: block;
+  font-size: 14px;
+  vertical-align: middle;
+}
+.orderlist dt .ordertime {
+  height: 48px;
+  position: relative;
+}
+.orderlist dd {
+  width: 84%;
+  float: left;
+  background: #fff;
+}
+.orderlist dd ul {
+  border-left: 1px solid #d2d2d2;
+}
+.orderlist dd li {
+  border-top: 1px solid #d2d2d2;
+  margin: -1px 0 0 0;
+  height: 63px;
+  position: relative;
+}
+.orderlist dd li div {
+  float: left;
+  width: 33.3%;
+  font-size: 12px;
+  line-height: 30px;
+  text-align: center;
+}
+.orderlist dd li .ordername {
+  font-size: 14px;
+}
+.orderlist dd li .ordername span {
+  display: block;
+}
+.orderlist dd li .ordername i {
+  display: block;
+  color: #e85859;
+}
+.orderlist dd li .orderinfo {
+  line-height: 20px;
+  color: #999999;
+  padding: 12px 0 0 0;
+}
+.orderlist dd li .orderinfo span {
+  display: block;
+}
+.orderlist dd li .orderinfo i {
+  display: block;
+}
+.orderlist dd li .ordermoney {
+  color: #e4393c;
+  line-height: 63px;
+}
+/*ticket.html*/
+.echarts{margin-bottom: 10px;}
+.echarts a{color: #E32030;}
+.echartsdiv{background: #fff;}
+.sigerd{width: 100%;margin-top: 10px;background: #fff; display: inline-block; border: 1px solid #ddd;}
+.sigerd ul{margin: 10px 0;}
+.sigerd li{width: 33.3%;text-align: center;}
+.sigerd span,.sige em{display: inline-block; padding: 5px 0;}
+.butt{border:none;background: #E32030;color:#fff;border-radius: 2px;padding: 5px 2px;margin: 10px 0;}
+.prices{font-size: 22px;color: #E32030;}
+.red{color: #E32030;}
+.gray{color: #959595;}
+.green{color: #259B24;}
+.tbottom{background: #fff;color: #959595;padding:5px;margin-top: 10px; border: 1px solid #ddd;}
+.ok{width: 90%;font-size: 16px;border:none;background: #E32030;color:#fff;border-radius: 2px;padding: 5px 2px;margin:5%;}
+/*valuedetail.html*/
+.value table{width: 100%;margin: 10px 0; background:#fff;}
+.value td,.value th{border: 1px solid #ddd;padding: 5px 0;text-align: center;}
+.value tbody tr:nth-child(2n-1){background: #f7f7f7;}
+
+
+
+
+

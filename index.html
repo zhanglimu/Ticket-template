@@ -1,0 +1,97 @@
+<!DOCTYPE html>  
+<html lang="en"> 
+<head>  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>方案详情</title>  
+    <link rel="shortcut icon" type="image/x-icon" href="img/biticon.ico" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>  
+<body ng-app="index">
+    <header id="top">
+		<a class="point">
+			<img src="img/left.png"/>
+		</a>
+		<h4 class="tatle">方案详情</h4>
+		<!--<a id="pointer" class="pointer">
+			<img ng-src="{{::tabqie.src1}}" alt="icon的seo">
+		</a>-->
+	</header> 
+	<article ng-controller="indexctrl as index">
+		<div>
+			<p class="foot">
+				<img src="img/foot.png"/>
+				<b>竞彩足球</b>
+			</p>
+			<ul class="sige">
+				<li class="left"><span>过关金额</span><br /><em>{{index.pass}}元</em></li>
+				<li class="left"><span>过关方式</span><br /><em>{{index.way}}</em></li>
+				<li class="left"><span>倍数</span><br /><em>{{index.times}}</em></li>
+				<li class="left"><span>中奖金额</span><br /><em>{{index.winning}}</em></li>
+			</ul>
+			<div>
+				<h5>方案状态：</h5>
+				<div id="progressBar">
+					<!-- 进度条 -->
+					<div>
+						<span></span>
+					</div>
+					<!-- 五个圆 -->
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<div id="progressBari">
+					<i>投注下单</i>
+					<i>站点下单</i>
+					<i>出票成功</i>
+					<i>交易中</i>
+					<i>已交易</i>
+				</div>
+			</div>
+			<div class="order">
+				<h5 class="left">投注内容：</h5>
+				<sub style="color: #959595;">(以下赔率、盘口为出票时的赔率、盘口)</sub>
+				<a class="right" href="bettingdetail.html">方案详情</a>
+				<table>
+					<tr>
+						<th>场次</th>
+						<th>主队vs客队</th>
+						<th>投注内容</th>
+						<th>赛果</th>
+					</tr>
+					<tr ng-repeat="tic in index.ticbox">
+						<td><span>{{tic.num}}</span><br /><i>{{tic.clas}}</i></td>
+						<td><span>{{tic.zhu}}</span><br />vs<br /><span>{{tic.ke}}</span></td>
+						<td><span>{{tic.win}}</span><br /><i>{{tic.odds}}</i></td>
+						<td><span>{{tic.end}}</span></td>
+					</tr>
+				</table>
+			</div>
+			<div class="price">
+				<h5 class="left">方案价格：</h5>
+				<table>
+					<tr>
+						<td><span>评估参考</span><i>￥{{index.assess}}</i><button class="right">实时询价</button></td>
+					</tr>
+					<tr>
+						<td><span>*由“彩易科思”提供彩票价值评估与交易服务</span></td>
+					</tr>
+				</table>
+			</div>
+			<div class="bottom">
+				<p>方案编号：<span>{{index.numid}}</span></p>
+				<p>方案发起时间：<span>{{index.startime}}</span></p>
+				<p>预计奖金：<span>{{index.pre}}</span></p>
+			</div>
+		</div>
+	</article>
+</body> 
+</html>  
+

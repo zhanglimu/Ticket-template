@@ -1,0 +1,47 @@
+<!DOCTYPE html>  
+<html lang="en"> 
+<head>  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>价值明细</title>  
+    <link rel="shortcut icon" type="image/x-icon" href="img/biticon.ico" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/value.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>  
+<body ng-app="value">
+    <header id="top">
+		<a class="point" href="ticket.html">
+			<img src="img/left.png"/>
+		</a>
+		<h4 class="tatle">价值明细</h4>
+		<!--<a id="pointer" class="pointer">
+			<img ng-src="{{::tabqie.src1}}" alt="icon的seo">
+		</a>-->
+	</header> 
+	<article ng-controller="valuectrl as value">
+		<div>
+			<div class="value">
+				<table>
+					<thead>
+						<tr>
+							<th colspan="2">时间</th>
+							<th>价格</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="tr in value.trbox">
+							<td>{{tr.time}}</td>
+							<td><span>{{tr.state}}</span></td>
+							<td><span>{{tr.money}}￥</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</article>
+</body> 
+</html>  
+
